@@ -25,7 +25,7 @@ AI was used as a development tool - not as a replacement for the creative work b
 - Spore Creepers that leap at their targets and can be shield-parried
 - Frostlings and a snowball screen/freezing mechanic
 - Shield Skeletons with defensive and parrying behaviour
-- Zombie Wolves, Wolf Jockeys and undead packs
+- Zombie Wolves
 - Emissive armor trims
 - An in-game configuration screen with individual mechanic toggles and spawn chances
 
