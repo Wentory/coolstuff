@@ -1,3 +1,4 @@
+<img width="875" height="150" alt="Coolstuff" src="https://github.com/user-attachments/assets/317a8d63-af9b-400c-81e1-c62436c4c90f" />
 # Coolstuff
 
 Coolstuff is a Vanilla+ Minecraft mod with cool and occasionally absurd content. It expands familiar mechanics and mobs with unexpected reactions, satisfying visual effects and increasingly ridiculous consequences.
