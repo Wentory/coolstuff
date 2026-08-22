@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
+import net.minecraft.world.entity.ai.goal.SitWhenOrderedToGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.Sheep;
@@ -34,6 +35,11 @@ public final class ZombieWolfEntity extends Wolf {
     }
 
     @Override
+    protected int getBaseExperienceReward() {
+        return 3;
+    }
+
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(HAS_COLLAR, false);
@@ -43,6 +49,7 @@ public final class ZombieWolfEntity extends Wolf {
     @Override
     protected void registerGoals() {
         super.registerGoals();
+        goalSelector.removeAllGoals(goal -> goal instanceof SitWhenOrderedToGoal);
         goalSelector.addGoal(2, new AvoidPlayerWhenAloneGoal());
         targetSelector.addGoal(3, new SupportedPlayerTargetGoal());
         targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Sheep.class, true));
@@ -50,6 +57,7 @@ public final class ZombieWolfEntity extends Wolf {
 
     @Override
     public void aiStep() {
+        if (isOrderedToSit()) setOrderedToSit(false);
         super.aiStep();
         if (level().isClientSide()) return;
 

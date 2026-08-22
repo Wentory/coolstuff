@@ -29,7 +29,8 @@ public final class ZombieWolfSpawnHandler {
                 || event.getSpawnType() != MobSpawnType.NATURAL
                 || !(event.getEntity() instanceof Zombie zombie)
                 || zombie.getType() != EntityType.ZOMBIE
-                || !(zombie.level() instanceof ServerLevel level)) {
+                || !(zombie.level() instanceof ServerLevel level)
+                || !level.canSeeSky(zombie.blockPosition())) {
             return;
         }
 

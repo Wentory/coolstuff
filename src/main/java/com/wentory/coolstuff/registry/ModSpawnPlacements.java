@@ -25,6 +25,7 @@ public final class ModSpawnPlacements {
         ModEntities.ZOMBIE_WOLF.ifPresent(holder -> event.register(holder.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 (type, level, spawnType, pos, random) -> RestartRequiredConfig.zombieWolf()
+                        && level.canSeeSky(pos)
                         && level.getDifficulty() != Difficulty.PEACEFUL
                         && Monster.isDarkEnoughToSpawn(level, pos, random)
                         && Mob.checkMobSpawnRules(type, level, spawnType, pos, random),

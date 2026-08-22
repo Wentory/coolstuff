@@ -5,6 +5,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.jetbrains.annotations.Nullable;
 
 public class FrostlingEntity extends Zombie implements RangedAttackMob {
@@ -29,6 +31,11 @@ public class FrostlingEntity extends Zombie implements RangedAttackMob {
 
     public FrostlingEntity(EntityType<? extends FrostlingEntity> type, Level level) {
         super(type, level);
+    }
+
+    @Override
+    protected ResourceKey<LootTable> getDefaultLootTable() {
+        return EntityType.ZOMBIE.getDefaultLootTable();
     }
 
     @Override

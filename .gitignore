@@ -1,5 +1,7 @@
 # Gradle
 .gradle/
+.git-backup/
+.git-backup/
 build/
 out/
 

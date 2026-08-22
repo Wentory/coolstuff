@@ -47,7 +47,8 @@ public final class ShieldProjectileParryHandler {
         Entity hitEntity = hit.getEntity();
         if (CoolstuffConfig.ENABLE_PARRY.get()
                 && hitEntity instanceof Player player
-                && isParryable(projectile) && isTimedShieldParry(player)) {
+                && isParryable(projectile) && isTimedShieldParry(player)
+                && isInFrontOfShield(projectile, player)) {
             event.setCanceled(true);
             reflect(projectile, player);
             return;
@@ -109,6 +110,17 @@ public final class ShieldProjectileParryHandler {
     private static boolean isTimedShieldParry(Player player) {
         return player.isUsingItem() && player.getUseItem().is(Items.SHIELD)
                 && player.getTicksUsingItem() <= PARRY_WINDOW_TICKS;
+    }
+
+    private static boolean isInFrontOfShield(Projectile projectile, Player player) {
+        Vec3 look = player.getLookAngle().multiply(1.0, 0.0, 1.0);
+        Vec3 incomingFrom = projectile.getDeltaMovement().scale(-1.0).multiply(1.0, 0.0, 1.0);
+        if (look.lengthSqr() < 1.0E-6) return false;
+        if (incomingFrom.lengthSqr() < 1.0E-6) {
+            incomingFrom = projectile.position().subtract(player.position()).multiply(1.0, 0.0, 1.0);
+        }
+        return incomingFrom.lengthSqr() >= 1.0E-6
+                && look.normalize().dot(incomingFrom.normalize()) > 0.0;
     }
 
     private static void reflect(Projectile projectile, Player player) {

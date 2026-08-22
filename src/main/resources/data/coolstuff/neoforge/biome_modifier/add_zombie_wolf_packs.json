@@ -6,7 +6,7 @@
   "biomes": "#minecraft:is_overworld",
   "spawners": {
     "type": "coolstuff:zombie_wolf",
-    "weight": 2,
+    "weight": 10,
     "minCount": 3,
     "maxCount": 5
   }

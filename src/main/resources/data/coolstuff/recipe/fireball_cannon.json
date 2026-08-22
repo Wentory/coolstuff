@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "LLI",
+    "FCN",
+    "LLI"
+  ],
+  "key": {
+    "L": { "item": "minecraft:leather" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "F": { "item": "minecraft:fire_charge" },
+    "C": { "item": "coolstuff:ghast_core" },
+    "N": { "item": "minecraft:netherite_scrap" }
+  },
+  "result": {
+    "id": "coolstuff:fireball_cannon",
+    "count": 1
+  }
+}
