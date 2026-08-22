@@ -1,0 +1,24 @@
+{
+  "targets": ["swap"],
+  "passes": [
+    {
+      "name": "coolstuff:event_horizon",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "uniforms": [
+        { "name": "Strength", "values": [0.0] },
+        { "name": "Impact", "values": [0.0] },
+        { "name": "SpawnImpact", "values": [0.0] },
+        { "name": "Danger", "values": [0.0] },
+        { "name": "LensX", "values": [0.5] },
+        { "name": "LensY", "values": [0.5] },
+        { "name": "LensStrength", "values": [0.0] }
+      ]
+    },
+    {
+      "name": "blit",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

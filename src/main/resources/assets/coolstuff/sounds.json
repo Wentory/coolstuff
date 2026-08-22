@@ -1,0 +1,48 @@
+{
+  "parry": {
+    "sounds": [
+      "coolstuff:parry"
+    ]
+  },
+  "phase2": {
+    "sounds": [
+      "coolstuff:phase2"
+    ]
+  },
+  "spore_fart": {
+    "sounds": [
+      "coolstuff:spore_fart"
+    ]
+  },
+  "cake_splat": {
+    "sounds": [
+      "coolstuff:splat"
+    ]
+  },
+  "blackhole_explosion": {
+    "sounds": [
+      "coolstuff:blackhole_explosion"
+    ]
+  },
+  "blackhole_spawn": {
+    "sounds": [
+      "coolstuff:blackhole_spawn"
+    ]
+  },
+  "blackhole_formation": {
+    "sounds": [
+      {
+        "name": "coolstuff:blackhole_formation",
+        "stream": true
+      }
+    ]
+  },
+  "blackhole_ambient": {
+    "sounds": [
+      {
+        "name": "coolstuff:blackhole_ambient",
+        "stream": true
+      }
+    ]
+  }
+}

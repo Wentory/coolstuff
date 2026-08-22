@@ -1,0 +1,33 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.wentory.coolstuff.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractHurtingProjectileMixin",
+    "CreeperAccessor",
+    "CreeperSugarTransformationMixin",
+    "GhastShootFireballGoalMixin",
+    "LargeFireballAccessor",
+    "RangedBowAttackGoalMixin",
+    "FireballPhaseMixin",
+    "SignalGetterMixin"
+    ,"ItemCombinerMenuAccessor"
+    ,"SmithingMenuMixin"
+  ],
+  "client": [
+    "client.ThrownItemRendererMixin",
+    "client.SoundEngineMixin",
+    "client.HierarchicalModelAccessor",
+    "client.CreeperModelMixin"
+    ,"client.LivingEntityRendererMixin"
+    ,"client.SkeletonModelMixin"
+    ,"client.HumanoidArmorLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

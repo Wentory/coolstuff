@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["ITI", " T ", "BWC"],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "T": { "item": "minecraft:ghast_tear" },
+    "B": { "item": "minecraft:blaze_rod" },
+    "W": { "item": "minecraft:cobweb" },
+    "C": { "item": "coolstuff:ghast_core" }
+  },
+  "result": { "id": "coolstuff:badminton", "count": 1 }
+}

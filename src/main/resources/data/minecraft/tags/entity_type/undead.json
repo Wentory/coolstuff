@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    {"id": "coolstuff:zombie_wolf", "required": false}
+  ]
+}

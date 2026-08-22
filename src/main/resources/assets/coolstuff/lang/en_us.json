@@ -1,0 +1,76 @@
+{
+  "coolstuff.config.restart_required": "Requires a Minecraft restart to apply.",
+  "itemGroup.coolstuff": "Coolstuff",
+  "item.coolstuff.fireball_cannon": "Fireball Launcher",
+  "item.coolstuff.badminton": "Badminton Racket",
+  "item.coolstuff.ghast_core": "Ghast Core",
+  "entity.coolstuff.spore_creeper": "Spore Creeper",
+  "entity.coolstuff.spore_creeper_projectile": "Flying Spore Creeper",
+  "entity.coolstuff.thrown_cake": "Thrown Cake",
+  "entity.coolstuff.frostling": "Frostling",
+  "entity.coolstuff.zombie_wolf": "Zombie Wolf",
+  "tooltip.coolstuff.cake_filling": "Filling: %s",
+  "tooltip.coolstuff.upgrades": "Upgrades: %s",
+  "tooltip.coolstuff.emissive": "Emissive",
+  "cake_filling.coolstuff.gunpowder": "Gunpowder",
+  "cake_filling.coolstuff.stone": "Stone",
+  "cake_filling.coolstuff.ice": "Ice",
+  "cake_filling.coolstuff.snow": "Snow",
+  "cake_filling.coolstuff.chorus": "Chorus Fruit",
+  "cake_filling.coolstuff.end_rod": "End Rod",
+  "cake_filling.coolstuff.candle": "Candle",
+  "cake_filling.coolstuff.lightning_rod": "Lightning Rod",
+  "cake_filling.coolstuff.redstone": "Redstone",
+  "cake_filling.coolstuff.slime": "Slime",
+  "cake_filling.coolstuff.honey": "Honey",
+  "cake_filling.coolstuff.glow_ink": "Glow Ink",
+  "cake_filling.coolstuff.ink": "Ink",
+  "cake_filling.coolstuff.pufferfish": "Pufferfish",
+  "cake_filling.coolstuff.phantom_membrane": "Phantom Membrane",
+  "cake_filling.coolstuff.echo": "Echo Shard",
+  "enchantment.coolstuff.serve": "Serve",
+  "enchantment.coolstuff.serve.desc": "Adds +10/+20 parries instead of +5.",
+  "enchantment.coolstuff.acceleration": "Acceleration",
+  "enchantment.coolstuff.acceleration.desc": "Turns the launcher's arcing shot into a fast straight shot.",
+  "death.attack.coolstuff.black_hole": "%1$s was consumed by a black hole",
+  "death.attack.coolstuff.creeper_parry": "%1$s had a creeper parried into their face by %2$s"
+  ,"death.attack.coolstuff.creeper_parry_fart": "%1$s had a Spore Creeper parried into their face by %2$s, in disgrace"
+  ,"death.attack.coolstuff.spore_creeper": "%1$s was blown up by Spore Creeper"
+  ,"death.attack.coolstuff.spore_creeper_fart": "%1$s was blown up by Spore Creeper, in disgrace"
+  ,"coolstuff.config.title": "Coolstuff Settings"
+  ,"coolstuff.config.parry_sound": "Parry volume: %s%%"
+  ,"coolstuff.config.parry_visuals": "Parry effects: %s%%"
+  ,"coolstuff.config.enable_parry": "Parrying"
+  ,"coolstuff.config.enable_ghast_parry": "Ghast parrying"
+  ,"coolstuff.config.enable_ultra_ghast": "UltraGhasts"
+  ,"coolstuff.config.enable_spore_creeper": "Spore Creepers"
+  ,"coolstuff.config.enable_sugar": "Sugar transformation"
+  ,"coolstuff.config.enable_cakes": "Throwable cakes"
+  ,"coolstuff.config.enable_fillings": "Cake fillings"
+  ,"coolstuff.config.enable_black_holes": "Black holes"
+  ,"coolstuff.config.enable_cake_pacification": "Feeding holes cakes"
+  ,"coolstuff.config.enable_launcher": "Fireball Launcher"
+  ,"coolstuff.config.ghast_parry_chance": "Ghast parry: %s%%"
+  ,"coolstuff.config.ultra_ghast_chance": "UltraGhast chance: %s%%"
+  ,"coolstuff.config.spore_creeper_chance": "Spore Creeper chance: %s%%"
+  ,"coolstuff.config.spore_fart_chance": "Fart chance: %s%%"
+  ,"coolstuff.config.shield_skeleton_chance": "Shield Skeleton: %s%%"
+  ,"coolstuff.config.shield_skeleton_parry_chance": "Skeleton parry: %s%%"
+  ,"coolstuff.config.enable_zombie_wolf": "Zombie Wolves"
+  ,"coolstuff.config.enable_emissive_trims": "Emissive armor trims"
+  ,"coolstuff.config.enable_frostling": "Frostlings"
+  ,"coolstuff.config.zombie_wolf_chance": "Zombie Wolf encounter: %s%%"
+  ,"coolstuff.config.ghast_parry_chance.label": "Ghast parry chance (%)"
+  ,"coolstuff.config.ultra_ghast_chance.label": "UltraGhast chance (%)"
+  ,"coolstuff.config.spore_creeper_chance.label": "Spore Creeper chance (%)"
+  ,"coolstuff.config.spore_fart_chance.label": "Fart chance (%)"
+  ,"coolstuff.config.shield_skeleton_chance.label": "Shield Skeleton chance (%)"
+  ,"coolstuff.config.shield_skeleton_parry_chance.label": "Skeleton parry chance (%)"
+  ,"coolstuff.config.zombie_wolf_chance.label": "Zombie Wolf encounter chance (%)"
+  ,"coolstuff.config.parry_sound.label": "Parry volume (%)"
+  ,"coolstuff.config.parry_visuals.label": "Parry effects (%)"
+  ,"coolstuff.config.frostling_chance": "Frostling conversion: %s%%"
+  ,"coolstuff.config.frostling_chance.label": "Frostling conversion chance (%)"
+  ,"coolstuff.config.wolf_jockey_chance": "Wolf Jockey replacement: %s%%"
+  ,"coolstuff.config.wolf_jockey_chance.label": "Chicken Jockey to Wolf Jockey chance (%)"
+}

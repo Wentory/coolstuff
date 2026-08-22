@@ -1,0 +1,7 @@
+{
+  "neoforge:conditions": [{"type": "coolstuff:content_enabled", "content": "cake_fillings"}],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [{"item": "minecraft:cake"}, {"item": "minecraft:ice"}],
+  "result": {"id": "minecraft:cake", "count": 1, "components": {"minecraft:custom_data": {"coolstuff:cake_filling": "ice"}}}
+}

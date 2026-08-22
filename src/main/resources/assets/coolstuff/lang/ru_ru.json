@@ -1,0 +1,76 @@
+{
+  "coolstuff.config.restart_required": "Для применения требуется перезапуск Minecraft.",
+  "itemGroup.coolstuff": "Coolstuff",
+  "item.coolstuff.fireball_cannon": "Огнешаромёт",
+  "item.coolstuff.badminton": "Ракетка для бадминтона",
+  "item.coolstuff.ghast_core": "Ядро гаста",
+  "entity.coolstuff.spore_creeper": "Споровый крипер",
+  "entity.coolstuff.spore_creeper_projectile": "Летящий споровый крипер",
+  "entity.coolstuff.thrown_cake": "Брошенный торт",
+  "entity.coolstuff.frostling": "Морозник",
+  "entity.coolstuff.zombie_wolf": "Зомби-волк",
+  "tooltip.coolstuff.cake_filling": "Начинка: %s",
+  "tooltip.coolstuff.upgrades": "Улучшения: %s",
+  "tooltip.coolstuff.emissive": "Свечение",
+  "cake_filling.coolstuff.gunpowder": "Порох",
+  "cake_filling.coolstuff.stone": "Камень",
+  "cake_filling.coolstuff.ice": "Лёд",
+  "cake_filling.coolstuff.snow": "Снег",
+  "cake_filling.coolstuff.chorus": "Плод хоруса",
+  "cake_filling.coolstuff.end_rod": "Стержень Энда",
+  "cake_filling.coolstuff.candle": "Свеча",
+  "cake_filling.coolstuff.lightning_rod": "Громоотвод",
+  "cake_filling.coolstuff.redstone": "Редстоун",
+  "cake_filling.coolstuff.slime": "Слизь",
+  "cake_filling.coolstuff.honey": "Мёд",
+  "cake_filling.coolstuff.glow_ink": "Светящиеся чернила",
+  "cake_filling.coolstuff.ink": "Чернила",
+  "cake_filling.coolstuff.pufferfish": "Иглобрюх",
+  "cake_filling.coolstuff.phantom_membrane": "Мембрана фантома",
+  "cake_filling.coolstuff.echo": "Эхо-осколок",
+  "enchantment.coolstuff.serve": "Подача",
+  "enchantment.coolstuff.serve.desc": "Добавляет +10/+20 парирований вместо +5.",
+  "enchantment.coolstuff.acceleration": "Ускорение",
+  "enchantment.coolstuff.acceleration.desc": "Превращает навесной выстрел запускателя в быстрый прямой выстрел.",
+  "death.attack.coolstuff.black_hole": "%1$s был поглощён чёрной дырой",
+  "death.attack.coolstuff.creeper_parry": "%1$s был отпарирован крипером в лицо игроком %2$s"
+  ,"death.attack.coolstuff.creeper_parry_fart": "%1$s был отпарирован Споровым крипером в лицо игроком %2$s с позором"
+  ,"death.attack.coolstuff.spore_creeper": "%1$s был взорван Споровым крипером"
+  ,"death.attack.coolstuff.spore_creeper_fart": "%1$s был взорван Споровым крипером с позором"
+  ,"coolstuff.config.title": "Настройки Coolstuff"
+  ,"coolstuff.config.parry_sound": "Громкость парирования: %s%%"
+  ,"coolstuff.config.parry_visuals": "Эффекты парирования: %s%%"
+  ,"coolstuff.config.enable_parry": "Парирование"
+  ,"coolstuff.config.enable_ghast_parry": "Парирование гастов"
+  ,"coolstuff.config.enable_ultra_ghast": "Ультрагасты"
+  ,"coolstuff.config.enable_spore_creeper": "Споровые криперы"
+  ,"coolstuff.config.enable_sugar": "Превращение от сахара"
+  ,"coolstuff.config.enable_cakes": "Метательные торты"
+  ,"coolstuff.config.enable_fillings": "Начинки тортов"
+  ,"coolstuff.config.enable_black_holes": "Чёрные дыры"
+  ,"coolstuff.config.enable_cake_pacification": "Кормление дыр тортом"
+  ,"coolstuff.config.enable_launcher": "Огнешаромёт"
+  ,"coolstuff.config.ghast_parry_chance": "Парирование гаста: %s%%"
+  ,"coolstuff.config.ultra_ghast_chance": "Шанс Ультрагаста: %s%%"
+  ,"coolstuff.config.spore_creeper_chance": "Шанс Спорового: %s%%"
+  ,"coolstuff.config.spore_fart_chance": "Шанс пука: %s%%"
+  ,"coolstuff.config.shield_skeleton_chance": "Скелет со щитом: %s%%"
+  ,"coolstuff.config.shield_skeleton_parry_chance": "Парирование скелета: %s%%"
+  ,"coolstuff.config.enable_zombie_wolf": "Зомби-волки"
+  ,"coolstuff.config.enable_emissive_trims": "Светящиеся узоры брони"
+  ,"coolstuff.config.enable_frostling": "Морозники"
+  ,"coolstuff.config.zombie_wolf_chance": "Встреча с зомби-волками: %s%%"
+  ,"coolstuff.config.ghast_parry_chance.label": "Шанс парирования гаста (%)"
+  ,"coolstuff.config.ultra_ghast_chance.label": "Шанс Ультрагаста (%)"
+  ,"coolstuff.config.spore_creeper_chance.label": "Шанс Спорового крипера (%)"
+  ,"coolstuff.config.spore_fart_chance.label": "Шанс пука (%)"
+  ,"coolstuff.config.shield_skeleton_chance.label": "Шанс скелета со щитом (%)"
+  ,"coolstuff.config.shield_skeleton_parry_chance.label": "Шанс парирования скелета (%)"
+  ,"coolstuff.config.zombie_wolf_chance.label": "Шанс встречи с зомби-волками (%)"
+  ,"coolstuff.config.parry_sound.label": "Громкость парирования (%)"
+  ,"coolstuff.config.parry_visuals.label": "Эффекты парирования (%)"
+  ,"coolstuff.config.frostling_chance": "Превращение в Морозника: %s%%"
+  ,"coolstuff.config.frostling_chance.label": "Шанс превращения в Морозника (%)"
+  ,"coolstuff.config.wolf_jockey_chance": "Замена на Wolf Jockey: %s%%"
+  ,"coolstuff.config.wolf_jockey_chance.label": "Шанс замены Chicken Jockey на Wolf Jockey (%)"
+}
