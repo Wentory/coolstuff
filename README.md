@@ -2,6 +2,11 @@
 
 Coolstuff is a Vanilla+ Minecraft mod with cool and occasionally absurd content. It expands familiar mechanics and mobs with unexpected reactions, satisfying visual effects and increasingly ridiculous consequences.
 
+## AI Disclosure
+Coolstuff was developed with the assistance of AI tools, primarily ChatGPT and Codex, which were used to help write and refine parts of the mod’s code.
+The mod’s concept, mechanics, game design, textures, models, sounds, testing, balancing, and overall creative direction were created and managed by Wentory.
+AI was used as a development tool - not as a replacement for the creative work behind the mod.
+
 ## Requirements
 
 - Minecraft 1.21.1
