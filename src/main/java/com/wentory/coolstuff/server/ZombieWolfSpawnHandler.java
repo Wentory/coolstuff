@@ -48,7 +48,10 @@ public final class ZombieWolfSpawnHandler {
 
     private static void spawnOwnedWolf(ServerLevel level, Zombie owner) {
         ZombieWolfEntity wolf = createWolf(level, owner.getX() + 1.0, owner.getY(), owner.getZ(), true, true);
-        if (wolf != null) level.addFreshEntity(wolf);
+        if (wolf != null) {
+            wolf.setZombieOwner(owner);
+            level.addFreshEntity(wolf);
+        }
     }
 
     private static void replaceChickenJockey(ServerLevel level, Zombie rider, Chicken chicken) {
@@ -56,6 +59,7 @@ public final class ZombieWolfSpawnHandler {
         chicken.discard();
         ZombieWolfEntity wolf = createWolf(level, rider.getX(), rider.getY(), rider.getZ(), true, false);
         if (wolf == null) return;
+        wolf.setZombieOwner(rider);
         if (level.getRandom().nextFloat() < 0.60F) equipArmor(wolf);
         level.addFreshEntity(wolf);
         rider.startRiding(wolf, true);

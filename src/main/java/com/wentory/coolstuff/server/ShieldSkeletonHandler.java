@@ -57,10 +57,14 @@ public final class ShieldSkeletonHandler {
                 >= CoolstuffConfig.SHIELD_SKELETON_SPAWN_CHANCE.get()) return;
 
         Skeleton skeleton = (Skeleton) event.getEntity();
+        makeShieldSkeleton(skeleton);
+        DebugMode.markAndAnnounce(skeleton, "Shield Skeleton");
+    }
+
+    public static void makeShieldSkeleton(Skeleton skeleton) {
         skeleton.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
         skeleton.setDropChance(EquipmentSlot.OFFHAND, 0.0F);
         skeleton.getPersistentData().putBoolean(SHIELD_AI, true);
-        DebugMode.markAndAnnounce(skeleton, "Shield Skeleton");
     }
 
     @SubscribeEvent

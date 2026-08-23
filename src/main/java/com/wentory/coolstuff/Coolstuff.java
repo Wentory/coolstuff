@@ -8,9 +8,11 @@ import com.wentory.coolstuff.registry.ModItems;
 import com.wentory.coolstuff.registry.ModSounds;
 import com.wentory.coolstuff.registry.ModCreativeTabs;
 import com.wentory.coolstuff.registry.ModConditions;
+import com.wentory.coolstuff.server.CakeDispenserBehavior;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import com.wentory.coolstuff.config.CoolstuffConfig;
 import com.wentory.coolstuff.config.CoolstuffClientConfig;
 import net.neoforged.fml.ModContainer;
@@ -30,6 +32,7 @@ public final class Coolstuff {
         ModCreativeTabs.TABS.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         modEventBus.addListener(this::registerPayloads);
+        modEventBus.addListener(this::commonSetup);
         modContainer.registerConfig(ModConfig.Type.COMMON, CoolstuffConfig.SPEC);
         modContainer.registerConfig(ModConfig.Type.CLIENT, CoolstuffClientConfig.SPEC);
         if (FMLEnvironment.dist == Dist.CLIENT) {
@@ -37,6 +40,9 @@ public final class Coolstuff {
         }
     }
 
+    private void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(CakeDispenserBehavior::register);
+    }
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToClient(
                 ParryEffectPayload.TYPE,

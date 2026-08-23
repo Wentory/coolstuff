@@ -5,10 +5,12 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AbstractHurtingProjectileMixin",
+    "AvoidEntityGoalMixin",
     "CreeperAccessor",
     "CreeperSugarTransformationMixin",
     "GhastShootFireballGoalMixin",
     "LargeFireballAccessor",
+    "ProjectileDeflectionMixin",
     "RangedBowAttackGoalMixin",
     "FireballPhaseMixin",
     "SignalGetterMixin"

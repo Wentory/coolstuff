@@ -30,6 +30,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 public final class ShieldProjectileParryHandler {
     private static final String PARRIED_SNOWBALL = "coolstuff_parried_snowball";
     private static final int PARRY_WINDOW_TICKS = 5;
+    private static final double SNOWBALL_SHIELD_BLOCK_CHANCE = 0.80;
     private static final String SNOW_HIT_DURATIONS = "coolstuff_snow_hit_durations";
     private static final int SNOW_HIT_DURATION = 600;
     private static final int FREEZING_HIT_COUNT = 5;
@@ -51,6 +52,18 @@ public final class ShieldProjectileParryHandler {
                 && isInFrontOfShield(projectile, player)) {
             event.setCanceled(true);
             reflect(projectile, player);
+            return;
+        }
+
+        if (projectile instanceof Snowball
+                && hitEntity instanceof Player player
+                && isNormalShieldBlock(player)
+                && isInFrontOfShield(projectile, player)
+                && level.random.nextDouble() < SNOWBALL_SHIELD_BLOCK_CHANCE) {
+            event.setCanceled(true);
+            projectile.discard();
+            level.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.SHIELD_BLOCK,
+                    net.minecraft.sounds.SoundSource.PLAYERS, 0.8F, 1.1F);
             return;
         }
 
@@ -110,6 +123,10 @@ public final class ShieldProjectileParryHandler {
     private static boolean isTimedShieldParry(Player player) {
         return player.isUsingItem() && player.getUseItem().is(Items.SHIELD)
                 && player.getTicksUsingItem() <= PARRY_WINDOW_TICKS;
+    }
+    private static boolean isNormalShieldBlock(Player player) {
+        return player.isUsingItem() && player.getUseItem().is(Items.SHIELD)
+                && player.getTicksUsingItem() > PARRY_WINDOW_TICKS;
     }
 
     private static boolean isInFrontOfShield(Projectile projectile, Player player) {

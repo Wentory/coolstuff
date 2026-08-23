@@ -3,6 +3,7 @@ package com.wentory.coolstuff.mixin;
 import com.wentory.coolstuff.fireball.FireballPhase;
 import com.wentory.coolstuff.fireball.FireballPhaseAccess;
 import com.wentory.coolstuff.server.FireballCombo;
+import com.wentory.coolstuff.server.ProjectileDeflectionContext;
 import com.wentory.coolstuff.registry.ModEnchantments;
 import com.wentory.coolstuff.registry.ModItems;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -37,21 +38,29 @@ public abstract class AbstractHurtingProjectileMixin {
 
     @Inject(method = "onDeflection", at = @At("TAIL"))
     private void coolstuff$powerUpAfterPlayerParry(Entity deflector, boolean deflectedByAttack, CallbackInfo ci) {
-        if (!CoolstuffConfig.ENABLE_PARRY.get()) return;
+        if (!CoolstuffConfig.ENABLE_PARRY.get() || ProjectileDeflectionContext.isProjectileCollision()) return;
         if ((Object) this instanceof LargeFireball fireball
                 && deflector instanceof Player
                 && deflectedByAttack
                 && !fireball.level().isClientSide()) {
             CannonProjectileHandler.releaseFromArc(fireball);
             int amount = 1;
+            Player badmintonPlayer = null;
+            net.minecraft.world.item.ItemStack badminton = net.minecraft.world.item.ItemStack.EMPTY;
             if (deflector instanceof Player player && player.getMainHandItem().is(ModItems.BADMINTON.get())) {
-                player.getMainHandItem().hurtAndBreak(5, player, EquipmentSlot.MAINHAND);
+                badmintonPlayer = player;
+                badminton = player.getMainHandItem();
                 int level = EnchantmentHelper.getItemEnchantmentLevel(
                         player.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(ModEnchantments.SERVE),
-                        player.getMainHandItem());
+                        badminton);
                 amount = level >= 2 ? 20 : level == 1 ? 10 : 5;
+                badminton.hurtAndBreak(5, player, EquipmentSlot.MAINHAND);
             }
-            FireballCombo.parry(fireball, amount);
+            int combo = FireballCombo.parry(fireball, amount);
+            if (badmintonPlayer != null && !badminton.isEmpty()
+                    && FireballPhase.fromCombo(combo) == FireballPhase.BLACK_HOLE) {
+                badminton.hurtAndBreak(badminton.getMaxDamage(), badmintonPlayer, EquipmentSlot.MAINHAND);
+            }
         }
     }
 

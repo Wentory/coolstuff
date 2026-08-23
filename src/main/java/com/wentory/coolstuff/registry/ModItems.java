@@ -4,6 +4,7 @@ import com.wentory.coolstuff.Coolstuff;
 import com.wentory.coolstuff.config.BootstrapConfig;
 import com.wentory.coolstuff.item.CannonItem;
 import com.wentory.coolstuff.item.BadmintonItem;
+import com.wentory.coolstuff.item.GhastCoreItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.entity.EquipmentSlotGroup;
@@ -35,8 +36,9 @@ public final class ModItems {
                                             1.0, AttributeModifier.Operation.ADD_VALUE),
                                     EquipmentSlotGroup.MAINHAND)
                             .build()));
-    public static final DeferredItem<Item> GHAST_CORE = ITEMS.registerSimpleItem(
-            "ghast_core", new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE));
+    public static final DeferredItem<GhastCoreItem> GHAST_CORE = ITEMS.registerItem(
+            "ghast_core", GhastCoreItem::new,
+            new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE));
 
     public static final Optional<DeferredItem<DeferredSpawnEggItem>> SPORE_CREEPER_SPAWN_EGG =
             BootstrapConfig.SPORE_CREEPER ? Optional.of(ITEMS.register("spore_creeper_spawn_egg",
