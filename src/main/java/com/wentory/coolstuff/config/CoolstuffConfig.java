@@ -9,6 +9,8 @@ public final class CoolstuffConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_GHAST_PARRY;
     public static final ModConfigSpec.BooleanValue ENABLE_ULTRA_GHAST;
     public static final ModConfigSpec.BooleanValue ENABLE_SPORE_CREEPER;
+    public static final ModConfigSpec.BooleanValue SPORE_CREEPER_BLOCK_DAMAGE;
+    public static final ModConfigSpec.BooleanValue PARRIED_SPORE_CREEPER_BLOCK_DAMAGE;
     public static final ModConfigSpec.BooleanValue ENABLE_SUGAR_TRANSFORMATION;
     public static final ModConfigSpec.BooleanValue ENABLE_THROWABLE_CAKES;
     public static final ModConfigSpec.BooleanValue ENABLE_CAKE_FILLINGS;
@@ -35,6 +37,12 @@ public final class CoolstuffConfig {
         ENABLE_GHAST_PARRY = toggle(builder, "ghastParry", "Ghasts can parry reflected fireballs.");
         ENABLE_ULTRA_GHAST = toggle(builder, "ultraGhast", "UltraGhasts and their burst attacks.");
         ENABLE_SPORE_CREEPER = toggle(builder, "sporeCreeper", "Natural Spore Creeper spawning.");
+        SPORE_CREEPER_BLOCK_DAMAGE = builder
+                .comment("Whether normal Spore Creeper explosions damage blocks.")
+                .define("sporeCreeperBlockDamage", false);
+        PARRIED_SPORE_CREEPER_BLOCK_DAMAGE = builder
+                .comment("Whether parried Spore Creeper explosions damage blocks.")
+                .define("parriedSporeCreeperBlockDamage", true);
         ENABLE_SUGAR_TRANSFORMATION = toggle(builder, "sugarTransformation", "Creepers transform after eating sugar.");
         ENABLE_THROWABLE_CAKES = toggle(builder, "throwableCakes", "Cakes can be thrown.");
         ENABLE_CAKE_FILLINGS = toggle(builder, "cakeFillings", "Cake filling effects are applied on hit.");

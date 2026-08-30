@@ -15,6 +15,7 @@ public final class LeapingCreeperRenderer extends CreeperRenderer {
 
     public LeapingCreeperRenderer(EntityRendererProvider.Context context) {
         super(context);
+        addLayer(new SporeCreeperChargeLayer(this));
     }
 
     @Override

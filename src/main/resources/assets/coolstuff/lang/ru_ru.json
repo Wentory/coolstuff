@@ -5,12 +5,12 @@
   "item.coolstuff.badminton": "Ракетка для бадминтона",
   "item.coolstuff.ghast_core": "Ядро гаста",
   "item.coolstuff.spore_creeper_spawn_egg": "Яйцо призыва спорового крипера",
-  "item.coolstuff.frostling_spawn_egg": "Яйцо призыва Морозника",
+  "item.coolstuff.frosted_spawn_egg": "Яйцо призыва Морозника",
   "item.coolstuff.zombie_wolf_spawn_egg": "Яйцо призыва зомби-волка",
   "entity.coolstuff.spore_creeper": "Споровый крипер",
   "entity.coolstuff.spore_creeper_projectile": "Летящий споровый крипер",
   "entity.coolstuff.thrown_cake": "Брошенный торт",
-  "entity.coolstuff.frostling": "Морозник",
+  "entity.coolstuff.frosted": "Морозник",
   "entity.coolstuff.zombie_wolf": "Зомби-волк",
   "tooltip.coolstuff.cake_filling": "Начинка: %s",
   "tooltip.coolstuff.upgrades": "Улучшения: %s",
@@ -47,6 +47,8 @@
   ,"coolstuff.config.enable_ghast_parry": "Парирование гастов"
   ,"coolstuff.config.enable_ultra_ghast": "Ультрагасты"
   ,"coolstuff.config.enable_spore_creeper": "Споровые криперы"
+  ,"coolstuff.config.spore_creeper_block_damage": "Разрушение блоков обычным взрывом"
+  ,"coolstuff.config.parried_spore_creeper_block_damage": "Разрушение блоков после парирования"
   ,"coolstuff.config.enable_sugar": "Превращение от сахара"
   ,"coolstuff.config.enable_cakes": "Метательные торты"
   ,"coolstuff.config.enable_fillings": "Начинки тортов"

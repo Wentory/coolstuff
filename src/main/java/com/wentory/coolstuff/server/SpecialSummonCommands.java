@@ -1,7 +1,9 @@
 package com.wentory.coolstuff.server;
 
 import com.wentory.coolstuff.Coolstuff;
+import com.wentory.coolstuff.entity.LeapingCreeperEntity;
 import com.wentory.coolstuff.entity.ZombieWolfEntity;
+import com.wentory.coolstuff.mixin.CreeperAccessor;
 import com.wentory.coolstuff.registry.ModEntities;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -37,6 +39,8 @@ public final class SpecialSummonCommands {
                                 .executes(context -> spawnUltraGhast(context.getSource())))
                         .then(Commands.literal("shield_skeleton")
                                 .executes(context -> spawnShieldSkeleton(context.getSource())))
+                        .then(Commands.literal("charged_spore_creeper")
+                                .executes(context -> spawnChargedSporeCreeper(context.getSource())))
                         .then(Commands.literal("zombie_wolf_pack")
                                 .executes(context -> spawnWolfPack(context.getSource())))
                         .then(Commands.literal("zombie_wolf_owner")
@@ -52,7 +56,16 @@ public final class SpecialSummonCommands {
         source.getLevel().addFreshEntity(ghast);
         return succeeded(source, "Summoned an UltraGhast");
     }
-
+    private static int spawnChargedSporeCreeper(CommandSourceStack source) {
+        var holder = ModEntities.LEAPING_CREEPER.orElse(null);
+        if (holder == null) return failed(source, "Spore Creepers are disabled in the config");
+        LeapingCreeperEntity creeper = holder.get().create(source.getLevel());
+        if (creeper == null) return failed(source, "Could not create a charged Spore Creeper");
+        placeAndFinalize(creeper, source, 0.0, 0.0);
+        creeper.getEntityData().set(CreeperAccessor.coolstuff$poweredData(), true);
+        source.getLevel().addFreshEntity(creeper);
+        return succeeded(source, "Summoned a charged Spore Creeper");
+    }
 
     private static int spawnShieldSkeleton(CommandSourceStack source) {
         Skeleton skeleton = EntityType.SKELETON.create(source.getLevel());

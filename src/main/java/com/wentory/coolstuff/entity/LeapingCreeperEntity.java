@@ -81,7 +81,12 @@ public final class LeapingCreeperEntity extends Creeper {
     }
 
     public float getPreparationProgress() {
-        return Math.min(1.0F, entityData.get(PREPARATION_TICKS) / 20.0F);
+        return getPreparationProgress(1.0F);
+    }
+
+    public float getPreparationProgress(float partialTick) {
+        float interpolatedTicks = Math.max(0.0F, entityData.get(PREPARATION_TICKS) - 1.0F + partialTick);
+        return Math.min(1.0F, interpolatedTicks / 20.0F);
     }
 
     public static double getSporeFartChance() {
@@ -179,7 +184,7 @@ public final class LeapingCreeperEntity extends Creeper {
         Vec3 launchPosition = getEyePosition();
         Vec3 displacement = destination.subtract(launchPosition);
         double horizontalDistance = Math.sqrt(displacement.x * displacement.x + displacement.z * displacement.z);
-        double flightTime = Math.max(6.0, Math.min(12.0, horizontalDistance * 1.25));
+        double flightTime = Math.max(8.0, Math.min(14.0, horizontalDistance * 1.45));
         double vx = displacement.x / flightTime;
         double vz = displacement.z / flightTime;
         double vy = (displacement.y + 0.5 * 0.05 * flightTime * flightTime) / flightTime;
@@ -188,6 +193,7 @@ public final class LeapingCreeperEntity extends Creeper {
                 ModEntities.LEAPING_CREEPER_PROJECTILE.orElseThrow().get(), serverLevel);
         projectile.setPos(launchPosition.x, launchPosition.y, launchPosition.z);
         projectile.setPoweredProjectile(isPowered());
+        projectile.setCarriedEffects(getActiveEffects());
         boolean farted = serverLevel.random.nextDouble() < CoolstuffConfig.SPORE_FART_CHANCE.get();
         projectile.setFarted(farted);
         projectile.setDeltaMovement(vx, vy, vz);
@@ -213,13 +219,20 @@ public final class LeapingCreeperEntity extends Creeper {
     private void explodeNow() {
         if (!(level() instanceof ServerLevel serverLevel) || isRemoved()) return;
         float radius = isPowered() ? 6.0F : 3.0F;
+        boolean damageBlocks = getAttackState() == REFLECTED
+                ? CoolstuffConfig.PARRIED_SPORE_CREEPER_BLOCK_DAMAGE.get()
+                : CoolstuffConfig.SPORE_CREEPER_BLOCK_DAMAGE.get();
+        Level.ExplosionInteraction interaction = damageBlocks
+                ? Level.ExplosionInteraction.MOB : Level.ExplosionInteraction.NONE;
         if (getAttackState() == REFLECTED && parriedBy != null) {
             Player owner = serverLevel.getPlayerByUUID(parriedBy);
             serverLevel.explode(this, ModDamageTypes.creeperParry(serverLevel, this, owner), null,
-                    position(), radius, false, Level.ExplosionInteraction.MOB);
+                    position(), radius, false, interaction);
         } else {
-            serverLevel.explode(this, getX(), getY(), getZ(), radius, Level.ExplosionInteraction.MOB);
+            serverLevel.explode(this, getX(), getY(), getZ(), radius, interaction);
         }
+        SporeCreeperEffectCloud.spawnExplosionParticles(serverLevel, position(), isPowered());
+        SporeCreeperEffectCloud.spawn(serverLevel, position(), getActiveEffects());
         discard();
     }
 

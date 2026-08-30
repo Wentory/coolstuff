@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public final class CoolstuffListConfigScreen extends Screen {
     private static final int ROW_HEIGHT = 23;
-    private static final int CONTENT_ROWS = 24;
+    private static final int CONTENT_ROWS = 26;
     private final Screen parent;
     private final List<LabelRow> labels = new ArrayList<>();
     private final List<RestartWarning> restartWarnings = new ArrayList<>();
@@ -60,6 +60,10 @@ public final class CoolstuffListConfigScreen extends Screen {
                 CoolstuffConfig.ENABLE_SPORE_CREEPER, RestartRequiredConfig.sporeCreeper());
         row = addPercent(row, x, listWidth, "coolstuff.config.spore_creeper_chance", CoolstuffConfig.SPORE_CREEPER_SPAWN_CHANCE);
         row = addPercent(row, x, listWidth, "coolstuff.config.spore_fart_chance", CoolstuffConfig.SPORE_FART_CHANCE);
+        row = addToggle(row, x, listWidth, "coolstuff.config.spore_creeper_block_damage",
+                CoolstuffConfig.SPORE_CREEPER_BLOCK_DAMAGE);
+        row = addToggle(row, x, listWidth, "coolstuff.config.parried_spore_creeper_block_damage",
+                CoolstuffConfig.PARRIED_SPORE_CREEPER_BLOCK_DAMAGE);
         row = addToggle(row, x, listWidth, "coolstuff.config.enable_sugar", CoolstuffConfig.ENABLE_SUGAR_TRANSFORMATION);
 
         row = addPercent(row, x, listWidth, "coolstuff.config.shield_skeleton_chance", CoolstuffConfig.SHIELD_SKELETON_SPAWN_CHANCE);

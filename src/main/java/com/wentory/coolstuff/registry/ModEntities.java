@@ -63,11 +63,11 @@ public final class ModEntities {
                     .build(Coolstuff.MODID + ":thrown_cake"));
 
     public static final Optional<DeferredHolder<EntityType<?>, EntityType<FrostlingEntity>>> FROSTLING =
-            BootstrapConfig.FROSTLING ? Optional.of(ENTITY_TYPES.register("frostling", () -> EntityType.Builder
+            BootstrapConfig.FROSTLING ? Optional.of(ENTITY_TYPES.register("frosted", () -> EntityType.Builder
                     .of(FrostlingEntity::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F)
                     .clientTrackingRange(8)
-                    .build(Coolstuff.MODID + ":frostling"))) : Optional.empty();
+                    .build(Coolstuff.MODID + ":frosted"))) : Optional.empty();
 
     public static final Optional<DeferredHolder<EntityType<?>, EntityType<ZombieWolfEntity>>> ZOMBIE_WOLF =
             BootstrapConfig.ZOMBIE_WOLF ? Optional.of(ENTITY_TYPES.register("zombie_wolf", () -> EntityType.Builder

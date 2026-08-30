@@ -1,13 +1,21 @@
 package com.wentory.coolstuff.entity;
 
+import com.wentory.coolstuff.config.CoolstuffConfig;
+
 import com.wentory.coolstuff.network.ParryEffectPayload;
 import com.wentory.coolstuff.registry.ModDamageTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -25,6 +33,9 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 public final class LeapingCreeperProjectileEntity extends Projectile {
@@ -36,6 +47,7 @@ public final class LeapingCreeperProjectileEntity extends Projectile {
             LeapingCreeperProjectileEntity.class, EntityDataSerializers.BOOLEAN);
     private int flightTicks;
     private UUID parriedBy;
+    private final List<MobEffectInstance> carriedEffects = new ArrayList<>();
 
     public LeapingCreeperProjectileEntity(EntityType<? extends LeapingCreeperProjectileEntity> type, Level level) {
         super(type, level);
@@ -67,6 +79,11 @@ public final class LeapingCreeperProjectileEntity extends Projectile {
 
     public void setFarted(boolean farted) {
         entityData.set(FARTED, farted);
+    }
+
+    public void setCarriedEffects(Collection<MobEffectInstance> effects) {
+        carriedEffects.clear();
+        for (MobEffectInstance effect : effects) carriedEffects.add(new MobEffectInstance(effect));
     }
 
     @Override
@@ -149,14 +166,21 @@ public final class LeapingCreeperProjectileEntity extends Projectile {
     private void explodeNow() {
         if (!(level() instanceof ServerLevel serverLevel) || isRemoved()) return;
         float radius = isPoweredProjectile() ? 6.0F : 3.0F;
+        boolean damageBlocks = isReflected()
+                ? CoolstuffConfig.PARRIED_SPORE_CREEPER_BLOCK_DAMAGE.get()
+                : CoolstuffConfig.SPORE_CREEPER_BLOCK_DAMAGE.get();
+        Level.ExplosionInteraction interaction = damageBlocks
+                ? Level.ExplosionInteraction.MOB : Level.ExplosionInteraction.NONE;
         if (isReflected() && parriedBy != null) {
             Player owner = serverLevel.getPlayerByUUID(parriedBy);
             serverLevel.explode(this, ModDamageTypes.creeperParry(serverLevel, this, owner, hasFarted()), null,
-                    position(), radius, false, Level.ExplosionInteraction.MOB);
+                    position(), radius, false, interaction);
         } else {
             serverLevel.explode(this, ModDamageTypes.sporeCreeper(serverLevel, this, hasFarted()), null,
-                    position(), radius, false, Level.ExplosionInteraction.MOB);
+                    position(), radius, false, interaction);
         }
+        SporeCreeperEffectCloud.spawnExplosionParticles(serverLevel, position(), isPoweredProjectile());
+        SporeCreeperEffectCloud.spawn(serverLevel, position(), carriedEffects);
         discard();
     }
 
@@ -168,6 +192,20 @@ public final class LeapingCreeperProjectileEntity extends Projectile {
         tag.putBoolean("Farted", hasFarted());
         tag.putInt("FlightTicks", flightTicks);
         if (parriedBy != null) tag.putUUID("ParriedBy", parriedBy);
+        ListTag effects = new ListTag();
+        for (MobEffectInstance effect : carriedEffects) {
+            ResourceLocation id = BuiltInRegistries.MOB_EFFECT.getKey(effect.getEffect().value());
+            if (id == null) continue;
+            CompoundTag effectTag = new CompoundTag();
+            effectTag.putString("Id", id.toString());
+            effectTag.putInt("Duration", effect.getDuration());
+            effectTag.putInt("Amplifier", effect.getAmplifier());
+            effectTag.putBoolean("Ambient", effect.isAmbient());
+            effectTag.putBoolean("Visible", effect.isVisible());
+            effectTag.putBoolean("ShowIcon", effect.showIcon());
+            effects.add(effectTag);
+        }
+        tag.put("CarriedEffects", effects);
     }
 
     @Override
@@ -178,5 +216,18 @@ public final class LeapingCreeperProjectileEntity extends Projectile {
         setFarted(tag.getBoolean("Farted"));
         flightTicks = tag.getInt("FlightTicks");
         if (tag.hasUUID("ParriedBy")) parriedBy = tag.getUUID("ParriedBy");
+        carriedEffects.clear();
+        ListTag effects = tag.getList("CarriedEffects", Tag.TAG_COMPOUND);
+        for (int i = 0; i < effects.size(); i++) {
+            CompoundTag effectTag = effects.getCompound(i);
+            ResourceLocation id = ResourceLocation.tryParse(effectTag.getString("Id"));
+            if (id == null) continue;
+            MobEffect effect = BuiltInRegistries.MOB_EFFECT.get(id);
+            if (effect == null) continue;
+            carriedEffects.add(new MobEffectInstance(BuiltInRegistries.MOB_EFFECT.wrapAsHolder(effect),
+                    effectTag.getInt("Duration"), effectTag.getInt("Amplifier"),
+                    effectTag.getBoolean("Ambient"), effectTag.getBoolean("Visible"),
+                    effectTag.getBoolean("ShowIcon")));
+        }
     }
 }

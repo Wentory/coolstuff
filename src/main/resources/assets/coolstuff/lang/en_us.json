@@ -5,12 +5,12 @@
   "item.coolstuff.badminton": "Badminton Racket",
   "item.coolstuff.ghast_core": "Ghast Core",
   "item.coolstuff.spore_creeper_spawn_egg": "Spore Creeper Spawn Egg",
-  "item.coolstuff.frostling_spawn_egg": "Frostling Spawn Egg",
+  "item.coolstuff.frosted_spawn_egg": "Frosted Spawn Egg",
   "item.coolstuff.zombie_wolf_spawn_egg": "Zombie Wolf Spawn Egg",
   "entity.coolstuff.spore_creeper": "Spore Creeper",
   "entity.coolstuff.spore_creeper_projectile": "Flying Spore Creeper",
   "entity.coolstuff.thrown_cake": "Thrown Cake",
-  "entity.coolstuff.frostling": "Frostling",
+  "entity.coolstuff.frosted": "Frosted",
   "entity.coolstuff.zombie_wolf": "Zombie Wolf",
   "tooltip.coolstuff.cake_filling": "Filling: %s",
   "tooltip.coolstuff.upgrades": "Upgrades: %s",
@@ -47,6 +47,8 @@
   ,"coolstuff.config.enable_ghast_parry": "Ghast parrying"
   ,"coolstuff.config.enable_ultra_ghast": "UltraGhasts"
   ,"coolstuff.config.enable_spore_creeper": "Spore Creepers"
+  ,"coolstuff.config.spore_creeper_block_damage": "Spore Creeper Explosions"
+  ,"coolstuff.config.parried_spore_creeper_block_damage": "Parried Spore Creeper Explosions"
   ,"coolstuff.config.enable_sugar": "Sugar transformation"
   ,"coolstuff.config.enable_cakes": "Throwable cakes"
   ,"coolstuff.config.enable_fillings": "Cake fillings"
@@ -61,7 +63,7 @@
   ,"coolstuff.config.shield_skeleton_parry_chance": "Skeleton parry: %s%%"
   ,"coolstuff.config.enable_zombie_wolf": "Zombie Wolves"
   ,"coolstuff.config.enable_emissive_trims": "Emissive armor trims"
-  ,"coolstuff.config.enable_frostling": "Frostlings"
+  ,"coolstuff.config.enable_frostling": "Frosted"
   ,"coolstuff.config.zombie_wolf_chance": "Zombie Wolf encounter: %s%%"
   ,"coolstuff.config.ghast_parry_chance.label": "Ghast parry chance (%)"
   ,"coolstuff.config.ultra_ghast_chance.label": "UltraGhast chance (%)"
@@ -72,8 +74,8 @@
   ,"coolstuff.config.zombie_wolf_chance.label": "Zombie Wolf encounter chance (%)"
   ,"coolstuff.config.parry_sound.label": "Parry volume (%)"
   ,"coolstuff.config.parry_visuals.label": "Parry effects (%)"
-  ,"coolstuff.config.frostling_chance": "Frostling conversion: %s%%"
-  ,"coolstuff.config.frostling_chance.label": "Frostling conversion chance (%)"
+  ,"coolstuff.config.frostling_chance": "Frosted conversion: %s%%"
+  ,"coolstuff.config.frostling_chance.label": "Frosted conversion chance (%)"
   ,"coolstuff.config.wolf_jockey_chance": "Wolf Jockey replacement: %s%%"
   ,"coolstuff.config.wolf_jockey_chance.label": "Chicken Jockey to Wolf Jockey chance (%)"
 }

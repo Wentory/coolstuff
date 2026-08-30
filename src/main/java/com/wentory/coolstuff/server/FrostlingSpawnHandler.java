@@ -46,6 +46,6 @@ public final class FrostlingSpawnHandler {
         }
         event.setSpawnCancelled(true);
         event.getLevel().addFreshEntity(frostling);
-        DebugMode.markAndAnnounce(frostling, "Frostling");
+        DebugMode.markAndAnnounce(frostling, "Frosted");
     }
 }

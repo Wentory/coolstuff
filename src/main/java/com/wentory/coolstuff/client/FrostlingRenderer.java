@@ -8,7 +8,7 @@ import net.minecraft.world.entity.monster.Zombie;
 
 public final class FrostlingRenderer extends ZombieRenderer {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            Coolstuff.MODID, "textures/entity/frostling.png");
+            Coolstuff.MODID, "textures/entity/frosted.png");
 
     public FrostlingRenderer(EntityRendererProvider.Context context) {
         super(context);

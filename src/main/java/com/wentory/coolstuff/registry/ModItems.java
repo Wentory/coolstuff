@@ -47,7 +47,7 @@ public final class ModItems {
                             0x477A3F, 0xE0C43A, new Item.Properties()))) : Optional.empty();
 
     public static final Optional<DeferredItem<DeferredSpawnEggItem>> FROSTLING_SPAWN_EGG =
-            BootstrapConfig.FROSTLING ? Optional.of(ITEMS.register("frostling_spawn_egg",
+            BootstrapConfig.FROSTLING ? Optional.of(ITEMS.register("frosted_spawn_egg",
                     () -> new DeferredSpawnEggItem(
                             () -> ModEntities.FROSTLING.orElseThrow().get(),
                             0x3B7774, 0xB7E8EF, new Item.Properties()))) : Optional.empty();
