@@ -10,6 +10,11 @@ run/
 run-data/
 runs/
 
+# Local launcher and release notes
+/LaunchClient.bat
+/scripts/launch-client.ps1
+/CHANGELOG.md
+
 # IDEs
 .idea/
 .junie/
