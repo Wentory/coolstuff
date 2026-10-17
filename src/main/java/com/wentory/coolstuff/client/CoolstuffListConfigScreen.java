@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public final class CoolstuffListConfigScreen extends Screen {
     private static final int ROW_HEIGHT = 23;
-    private static final int CONTENT_ROWS = 26;
+    private static final int CONTENT_ROWS = 30;
     private final Screen parent;
     private final List<LabelRow> labels = new ArrayList<>();
     private final List<RestartWarning> restartWarnings = new ArrayList<>();
@@ -45,6 +45,10 @@ public final class CoolstuffListConfigScreen extends Screen {
         int listWidth = Math.min(360, width - 32);
         int x = (width - listWidth) / 2;
         int row = 0;
+        row = addToggle(row, x, listWidth, "coolstuff.config.enable_icewake", CoolstuffConfig.ENABLE_ICEWAKE);
+        row = addToggle(row, x, listWidth, "coolstuff.config.enable_clamber", CoolstuffConfig.ENABLE_CLAMBER);
+        row = addPercent(row, x, listWidth, "coolstuff.config.serve_chest_chance", CoolstuffConfig.SERVE_CHEST_CHANCE);
+        row = addPercent(row, x, listWidth, "coolstuff.config.acceleration_chest_chance", CoolstuffConfig.ACCELERATION_CHEST_CHANCE);
 
         row = addToggle(row, x, listWidth, "coolstuff.config.enable_parry", CoolstuffConfig.ENABLE_PARRY);
         row = addSlider(row, x, listWidth, "coolstuff.config.parry_sound", CoolstuffClientConfig.PARRY_SOUND_VOLUME);

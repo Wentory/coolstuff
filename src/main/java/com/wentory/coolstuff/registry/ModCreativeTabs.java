@@ -22,6 +22,17 @@ public final class ModCreativeTabs {
                     .displayItems((parameters, output) -> {
                         ModItems.ITEMS.getEntries().forEach(item -> output.accept(item.get()));
 
+                        var enchantments = parameters.holders().lookupOrThrow(Registries.ENCHANTMENT);
+                        for (var key : java.util.List.of(ModEnchantments.SERVE, ModEnchantments.ACCELERATION,
+                                ModEnchantments.ICEWAKE, ModEnchantments.CLAMBER)) {
+                            var enchantment = enchantments.getOrThrow(key);
+                            for (int level = enchantment.value().getMinLevel(); level <= enchantment.value().getMaxLevel(); level++) {
+                                ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+                                book.enchant(enchantment, level);
+                                output.accept(book);
+                            }
+                        }
+
                         output.accept(Items.CAKE);
                         if (RestartRequiredConfig.cakeFillings()) for (CakeFilling filling : CakeFilling.values()) {
                             if (filling == CakeFilling.NONE) continue;

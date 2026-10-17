@@ -5,6 +5,8 @@ import com.wentory.coolstuff.network.BlackHoleImpactPayload;
 import com.wentory.coolstuff.network.SnowballHitPayload;
 import com.wentory.coolstuff.registry.ModEntities;
 import com.wentory.coolstuff.registry.ModItems;
+import com.wentory.coolstuff.registry.ModBlocks;
+import com.wentory.coolstuff.registry.ModLootModifiers;
 import com.wentory.coolstuff.registry.ModSounds;
 import com.wentory.coolstuff.registry.ModCreativeTabs;
 import com.wentory.coolstuff.registry.ModConditions;
@@ -29,6 +31,8 @@ public final class Coolstuff {
         ModConditions.CONDITIONS.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModLootModifiers.MODIFIERS.register(modEventBus);
         ModCreativeTabs.TABS.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         modEventBus.addListener(this::registerPayloads);

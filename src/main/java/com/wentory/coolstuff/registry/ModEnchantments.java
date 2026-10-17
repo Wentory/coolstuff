@@ -7,6 +7,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public final class ModEnchantments {
+    public static final ResourceKey<Enchantment> ICEWAKE = ResourceKey.create(
+            Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Coolstuff.MODID, "icewake"));
+    public static final ResourceKey<Enchantment> CLAMBER = ResourceKey.create(
+            Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Coolstuff.MODID, "clamber"));
     public static final ResourceKey<Enchantment> SERVE = ResourceKey.create(
             Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(Coolstuff.MODID, "serve"));
     public static final ResourceKey<Enchantment> ACCELERATION = ResourceKey.create(

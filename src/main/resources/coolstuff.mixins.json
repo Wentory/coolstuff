@@ -4,6 +4,10 @@
   "package": "com.wentory.coolstuff.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BoatItemMixin",
+    "BoatDispenserMixin",
+    "BoatMixin",
+    "BoatMovementMixin",
     "AbstractHurtingProjectileMixin",
     "AvoidEntityGoalMixin",
     "CreeperAccessor",

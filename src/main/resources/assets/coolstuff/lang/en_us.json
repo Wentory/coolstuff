@@ -1,4 +1,13 @@
 {
+  "coolstuff.config.serve_chest_chance.label": "Serve I: Ancient City chest (%)",
+  "coolstuff.config.acceleration_chest_chance.label": "Acceleration: Bastion chest (%)",
+  "enchantment.coolstuff.icewake": "Icewake",
+  "enchantment.coolstuff.icewake.desc": "Lets your boat glide over water as if on ice, leaving a short fading ice trail.",
+  "enchantment.coolstuff.clamber": "Clamber",
+  "enchantment.coolstuff.clamber.desc": "Allows your boat to climb ledges up to one block high.",
+  "block.coolstuff.icewake_ice": "Icewake Ice",
+  "coolstuff.config.enable_icewake": "Icewake boats",
+  "coolstuff.config.enable_clamber": "Clamber boats",
   "coolstuff.config.restart_required": "Requires a Minecraft restart to apply.",
   "itemGroup.coolstuff": "Coolstuff",
   "item.coolstuff.fireball_cannon": "Fireball Launcher",

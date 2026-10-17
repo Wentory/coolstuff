@@ -1,4 +1,13 @@
 {
+  "coolstuff.config.serve_chest_chance.label": "Подача I: сундук Древнего города (%)",
+  "coolstuff.config.acceleration_chest_chance.label": "Ускорение: сундук бастиона (%)",
+  "enchantment.coolstuff.icewake": "Ледоплав",
+  "enchantment.coolstuff.icewake.desc": "Позволяет лодке скользить по воде словно по льду, оставляя короткий тающий след.",
+  "enchantment.coolstuff.clamber": "Подступ",
+  "enchantment.coolstuff.clamber.desc": "Позволяет лодке подниматься на уступы высотой до одного блока.",
+  "block.coolstuff.icewake_ice": "Лёд ледоплава",
+  "coolstuff.config.enable_icewake": "Ледоплав для лодок",
+  "coolstuff.config.enable_clamber": "Подступ для лодок",
   "coolstuff.config.restart_required": "Для применения требуется перезапуск Minecraft.",
   "itemGroup.coolstuff": "Coolstuff",
   "item.coolstuff.fireball_cannon": "Огнешаромёт",

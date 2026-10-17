@@ -4,6 +4,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 
 public final class CoolstuffConfig {
     public static final ModConfigSpec SPEC;
+    public static final ModConfigSpec.BooleanValue ENABLE_ICEWAKE;
+    public static final ModConfigSpec.BooleanValue ENABLE_CLAMBER;
     public static final ModConfigSpec.BooleanValue BLACK_HOLE_PULL_CREATIVE_PLAYERS;
     public static final ModConfigSpec.BooleanValue ENABLE_PARRY;
     public static final ModConfigSpec.BooleanValue ENABLE_GHAST_PARRY;
@@ -21,6 +23,8 @@ public final class CoolstuffConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_EMISSIVE_TRIMS;
     public static final ModConfigSpec.BooleanValue ENABLE_FROSTLING;
     public static final ModConfigSpec.DoubleValue GHAST_PARRY_CHANCE;
+    public static final ModConfigSpec.DoubleValue SERVE_CHEST_CHANCE;
+    public static final ModConfigSpec.DoubleValue ACCELERATION_CHEST_CHANCE;
     public static final ModConfigSpec.DoubleValue ULTRA_GHAST_SPAWN_CHANCE;
     public static final ModConfigSpec.DoubleValue SPORE_CREEPER_SPAWN_CHANCE;
     public static final ModConfigSpec.DoubleValue SPORE_FART_CHANCE;
@@ -33,6 +37,8 @@ public final class CoolstuffConfig {
     static {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
         builder.push("mechanics");
+        ENABLE_ICEWAKE = toggle(builder, "icewake", "Icewake boats glide above water with a fading, block-aligned ice overlay.");
+        ENABLE_CLAMBER = toggle(builder, "clamber", "Clamber boats can climb a one-block ledge.");
         ENABLE_PARRY = toggle(builder, "parry", "Fireball parry combos and their effects.");
         ENABLE_GHAST_PARRY = toggle(builder, "ghastParry", "Ghasts can parry reflected fireballs.");
         ENABLE_ULTRA_GHAST = toggle(builder, "ultraGhast", "UltraGhasts and their burst attacks.");
@@ -54,6 +60,10 @@ public final class CoolstuffConfig {
         ENABLE_FROSTLING = toggle(builder, "frostling", "Zombies in snowy biomes can become Frostlings.");
         builder.pop();
         builder.push("chances");
+        SERVE_CHEST_CHANCE = chance(builder, "serveAncientCityChest", 0.03,
+                "Chance per Ancient City chest to contain a Serve I book. Serve II requires an anvil combination.");
+        ACCELERATION_CHEST_CHANCE = chance(builder, "accelerationBastionChest", 0.03,
+                "Chance per Bastion Remnant chest to contain an Acceleration I book.");
         GHAST_PARRY_CHANCE = chance(builder, "ghastParry", 0.30, "Chance that a ghast parries a reflected fireball.");
         ULTRA_GHAST_SPAWN_CHANCE = chance(builder, "ultraGhastSpawn", 0.10, "Natural UltraGhast spawn chance.");
         SPORE_CREEPER_SPAWN_CHANCE = chance(builder, "sporeCreeperSpawn", 0.10, "Natural Spore Creeper spawn chance.");
